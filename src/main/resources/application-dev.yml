@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: unboxy-dev
+
+aws:
+  region:
+    static: us-east-1
+  bucketName: unboxy-dev-local
+  outputPath: dev/
+  sqsQueueName: unboxy-games-dev-local
+  opensearch:
+    host: localhost
+    port: 9200
+
+# Local OpenSearch configuration
+anthropic:
+  api-key: ${ANTHROPIC_API_KEY:sk-ant-test-key}  # Use environment variable or default for testing
+
+cloud:
+  aws:
+    opensearch:
+      host: localhost
+      port: 9200
+    credentials:
+      use-default-aws-credentials-chain: false
+    region:
+      static: us-east-1

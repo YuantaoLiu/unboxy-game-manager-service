@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: unboxy
+  profiles:
+    active: prod
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_Lnvw9JXYb
+    user:
+      name: admin
+      password: admin
+aws:
+  region:
+    static: ${AWS_DEFAULT_REGION:us-east-1}
+  maxConcurrency: 100
+  bucketName: unboxy-dev
+  outputPath: dev/
+  sqsQueueName: unboxy-games-dev
+  opensearch:
+    host: ${OPENSEARCH_HOST}
+    port: 443
+  client:
+    maxConcurrency: 500
+    maxPendingConnectionAcquires: 10000
+    connectionAcquisitionTimeoutSeconds: 60
+    connectionMaxIdleTimeSeconds: 300
+    connectionTimeoutSeconds: 30
+
+anthropic:
+  api-key: ${ANTHROPIC_API_KEY}
+  model: claude-3-5-sonnet-20241022
+  max-tokens: 4000
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, env, beans, mappings, configprops, loggers, threads, heapdump, metrics, prometheus

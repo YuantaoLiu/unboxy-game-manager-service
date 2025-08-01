@@ -1,0 +1,4 @@
+{
+  "lang": "painless",
+  "source": "Math.max(params.num_terms, doc[params['field']].size())"
+}

@@ -1,0 +1,68 @@
+PUT /transcription
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1,
+      "number_of_replicas": 1
+    }
+  },
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "jobName": {
+        "type": "keyword"
+      },
+      "transcript": {
+        "type": "text"
+      },
+      "languageCode": {
+        "type": "keyword"
+      },
+      "title": {
+        "type": "text"
+      },
+      "description": {
+        "type": "text"
+      },
+      "duration": {
+        "type": "integer"
+      },
+      "creationUserInfo": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "keyword" },
+          "firstName": { "type": "keyword" },
+          "lastName": { "type": "keyword" },
+          "email": { "type": "keyword" }
+        }
+      },
+      "summary": {
+        "type": "text"
+      },
+      "creationDateTime": {
+        "type": "date",
+        "format": "strict_date_time"
+      },
+      "contentFileName": {
+        "type": "keyword"
+      },
+      "transcribeStatus": {
+        "type": "keyword"
+      },
+      "audioSegments": {
+        "type": "nested",
+        "properties": {
+          "id": { "type": "integer" },
+          "transcript": { "type": "text" },
+          "start_time": { "type": "float" },
+          "end_time": { "type": "float" }
+        }
+      },
+      "note": {
+        "type": "text"
+      }
+    }
+  }
+}

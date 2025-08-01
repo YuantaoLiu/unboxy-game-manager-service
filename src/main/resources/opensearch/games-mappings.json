@@ -1,0 +1,39 @@
+{
+  "properties": {
+    "id": {
+      "type": "keyword"
+    },
+    "title": {
+      "type": "text",
+      "analyzer": "standard"
+    },
+    "description": {
+      "type": "text",
+      "analyzer": "standard"
+    },
+    "gameType": {
+      "type": "keyword"
+    },
+    "tags": {
+      "type": "text",
+      "analyzer": "standard"
+    },
+    "gameStatus": {
+      "type": "keyword"
+    },
+    "userId": {
+      "type": "keyword"
+    },
+    "createdAt": {
+      "type": "date",
+      "format": "yyyy-MM-dd'T'HH:mm:ss.SSS||yyyy-MM-dd'T'HH:mm:ss||strict_date_time"
+    },
+    "updatedAt": {
+      "type": "date", 
+      "format": "yyyy-MM-dd'T'HH:mm:ss.SSS||yyyy-MM-dd'T'HH:mm:ss||strict_date_time"
+    },
+    "publicGameUrl": {
+      "type": "keyword"
+    }
+  }
+}
